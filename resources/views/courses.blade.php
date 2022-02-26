@@ -19,22 +19,37 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style>
+        #formm {
+            width: 300px;
+            border: 5px solid grey;
+            padding: 50px;
+            margin: 20px;
+            position: relative;
+            bottom: 10px;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: auto;
+            }
+    </style>
 </head>
 <body>
 @include ('navbar')
 
 
-            <div class="container">
-                <h1 class="title m-b-md" style="text-align: center; font-size: 84px; margin-bottom:35px">Courses</h1>
-<table class="table table-striped" style="font-size: 20px">
-    <thead>
-        <tr>
-        <th scope="col">#</th>
-        <th scope="col" class="text-center">Courses</th>
-        <th scope="col" class="text-nowrap text-center">Course Code</th>
-        <th scope="col" class="text-center">Description</th>
-        </tr>
-    </thead>
+<div class="container">
+    <h1 class="title m-b-md" style="text-align: center; font-size: 84px; margin-bottom:35px">Courses</h1>
+        <table class="table table-striped" style="font-size: 20px ;margin-bottom: 30px">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col" class="text-center">Courses</th>
+                <th scope="col" class="text-nowrap text-center">Course Code</th>
+                <th scope="col" class="text-center">Description</th>
+                </tr>
+        </thead>
         <tbody>
             <tr>
                 <th scope="row">1</th>
@@ -66,6 +81,32 @@
                 </tr>
         </tbody>
     </table>
+    <form id ="formm" method="post" action="{{ route('course.store') }}">
+        @csrf
+            <h1 class="subtitle m-b-md"  style="text-align: center; font-size: 20px; margin-bottom:10px">Pick Your Courses</h1>
+            <div class="row">
+                    <div class="span12 pagination-centered">
+                    <div class="checkbox">
+                        <label><input name="course[]" type="checkbox" value="c_plusplus"> C++</label>
+                    </div>
+                        <div class="checkbox">
+                        <label><input name="course[]" type="checkbox" value="java_script"> JavaScript</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input name="course[]" type="checkbox" value="c_sharp"> C#</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input name="course[]" type="checkbox" value="python"> Python</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input name="course[]" type="checkbox" value="html_css"> HTML/CSS</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-success btn-sm">Submit</button>
+            </div>
+    </form>
 </div>
 @include('footer')
 

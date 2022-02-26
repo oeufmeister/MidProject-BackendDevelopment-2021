@@ -21,11 +21,14 @@ Route::get('/home', function () {
     return view('welcome');
 });
 
-Route::get('/courses', function () {
-    return view('courses');
-});
+// Route::get('/courses', function () {
+//     return view('courses');
+// });
+Route::get('/courses','HomeController@home')->name('course.home');
+Route::post('/courses','HomeController@store')->name('course.store');
 
 Route::get('/logout', 'Auth\LoginController@logout');
+
 
 Auth::routes();
 
