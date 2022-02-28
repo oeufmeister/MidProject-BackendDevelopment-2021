@@ -11,7 +11,7 @@ class UserCourse extends Model
     ];
     public function user()
     {
-        return $this->belongsTo(Post::class,'id','user_id');
+        return $this->belongsTo(User::class,'id','user_id');
     }
     public function course()
     {

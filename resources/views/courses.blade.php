@@ -84,25 +84,13 @@
     <form id ="formm" method="post" action="{{ route('course.store') }}">
         @csrf
             <h1 class="subtitle m-b-md"  style="text-align: center; font-size: 20px; margin-bottom:10px">Pick Your Courses</h1>
-            <div class="row">
-                    <div class="span12 pagination-centered">
-                    <div class="checkbox">
-                        <label><input name="course[]" type="checkbox" value="c_plusplus"> C++</label>
-                    </div>
-                        <div class="checkbox">
-                        <label><input name="course[]" type="checkbox" value="java_script"> JavaScript</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input name="course[]" type="checkbox" value="c_sharp"> C#</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input name="course[]" type="checkbox" value="python"> Python</label>
-                    </div>
-                    <div class="checkbox">
-                        <label><input name="course[]" type="checkbox" value="html_css"> HTML/CSS</label>
-                    </div>
-                </div>
-            </div>
+                    <select class="form-control" name="courseopt">
+                        @foreach ($data as $d)
+                            <option value="{{$d->id}}"> 
+                                {{ $d->coursename }} 
+                            </option>
+                        @endforeach    
+                    </select>
             <div class="form-group text-center">
                 <button type="submit" class="btn btn-success btn-sm">Submit</button>
             </div>

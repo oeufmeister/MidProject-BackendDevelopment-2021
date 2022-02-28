@@ -16,7 +16,7 @@
                     <a class="nav-link" href="/courses">Courses</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="/about">About</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link mr-auto" href="{{ route('logout') }}" >Logout</a>
